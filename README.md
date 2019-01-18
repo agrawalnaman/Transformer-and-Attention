@@ -42,7 +42,7 @@ Attention between encoder and decoder is crucial in NMT.Attention is a function 
 + When decoding, perform a linear combination of these vectors, weighted by “attention weights” 
 + Use this combination in picking the next word
 
-## After reading the above explaination our major concern was, what is a KEY, QUERY and VALUE?
+## After reading the above explanation our major concern was, what is a KEY, QUERY and VALUE?
 
 In terms of encoder-decoder, the query is usually the hidden state of the decoder. Whereas key, is the hidden state of the encoder, and the corresponding value is normalized weight, representing how much attention a key gets. Output is calculated as a wighted sum – here the dot product of query and key is used to get a value.
 
