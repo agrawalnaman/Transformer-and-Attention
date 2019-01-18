@@ -50,6 +50,8 @@ It is assumed that queries and keys are of dk dimension and values are of dv dim
 
 The compatibility function (see Attention primer) is considered in terms of two, additive and multiplicative (dot-product) variants Bahdanau et al. 2014  with similar theoretical complexity.
 
+#### Reffered from [CMU CS 11-747, Spring 2018 Graham Neubig](http://www.phontron.com/class/nn4nlp2018/schedule/attention.html)
+
 ![encoder-decoder](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/Encoder-decoder-models.png)
 
 ![calculating-attention-1](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/calculating-attention-.png)
