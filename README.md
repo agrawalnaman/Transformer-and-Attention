@@ -22,10 +22,30 @@ To the best of our knowledge, however, the Transformer is the first transduction
 ### Why the name Transformer?
 The Transformer architecture is aimed at the problem of [sequence transduction (by Alex Graves)](https://arxiv.org/abs/1211.3711), **meaning any task where input sequences are transformed into output sequences**. This includes speech recognition, text-to-speech transformation, machine translation, protein secondary structure prediction, Turing machines etc. Basically the goal is to design a single framework to handle as many sequences as possible.
 ### What does a Transformer do?
-+ Transformer is based on sequence-to-sequence model for Statistical Machine Translation (SMT) as introduced in Cho et al., 2014 . It includes two RNNs, one for encoder to process the input and the other as a decoder, for generating the output.
++ Transformer is based on sequence-to-sequence model for Statistical Machine Translation (SMT) as introduced in [Cho et al., 2014](https://arxiv.org/abs/1406.1078) . It includes two RNNs, one for encoder to process the input and the other as a decoder, for generating the output.
 
 + In general, transformer’s encoder maps input sequence to its continuous representation z which in turn is used by decoder to generate output, one symbol at a time.
 
 + The final state of the encoder is a fixed size vector z that must encode entire source sentence which includes the sentence meaning. This final state is therefore called sentence embedding1.
 
 + The encoder-decoder model is designed at its each step to be auto-regressive - i.e. use previously generated symbols as extra input while generating next symbol. Thus, xi+yi−1→yi
+
+### To get a deeper insight into the Transformer in a more illustrated format we read [The illustrated Transformer - by Jay Alammar](https://jalammar.github.io/illustrated-transformer/), However we were left curious with a few unanswered questions after reading it. 
+### In this Blog we will attempt to answer those questions.
+
+### What is Attention?
+###### [AttentionPrimer](https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis)
+
+Attention between encoder and decoder is crucial in NMT.Attention is a function that maps the 2-element input (query, key-value pairs) to an output. The output given by the mapping function is a weighted sum of the values. Where weights for each value measures how much each input key interacts with (or answers) the query. While the attention is a goal for many research, the novelty about transformer attention is that it is multi-head self-attention.
+#### Basic Idea: (Bahdanau et al. 2015)
++ Encode each word in the sentence into a vector 
++ When decoding, perform a linear combination of these vectors, weighted by “attention weights” 
++ Use this combination in picking the next word
+
+## After reading the above expalination our major concern was, what is a KEY, QUERY and VALUE?
+
+In terms of encoder-decoder, the query is usually the hidden state of the decoder. Whereas key, is the hidden state of the encoder, and the corresponding value is normalized weight, representing how much attention a key gets. Output is calculated as a wighted sum – here the dot product of query and key is used to get a value.
+
+It is assumed that queries and keys are of dk dimension and values are of dv dimension. Those dimensions are imposed by the linear projection discussed in the multi-head attention section. The input is represented by three matrices: queries’ matrix Q, keys’ matrix K and values’ matrix V.
+
+The compatibility function (see Attention primer) is considered in terms of two, additive and multiplicative (dot-product) variants Bahdanau et al. 2014  with similar theoretical complexity.
