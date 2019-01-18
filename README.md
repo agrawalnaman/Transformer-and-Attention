@@ -49,3 +49,5 @@ In terms of encoder-decoder, the query is usually the hidden state of the decode
 It is assumed that queries and keys are of dk dimension and values are of dv dimension. Those dimensions are imposed by the linear projection discussed in the multi-head attention section. The input is represented by three matrices: queries’ matrix Q, keys’ matrix K and values’ matrix V.
 
 The compatibility function (see Attention primer) is considered in terms of two, additive and multiplicative (dot-product) variants Bahdanau et al. 2014  with similar theoretical complexity.
+
+
