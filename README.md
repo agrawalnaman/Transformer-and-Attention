@@ -52,7 +52,7 @@ The attention distribution is usually generated with content-based attention. Th
 
 One use of attention between RNNs is translation. A traditional sequence-to-sequence model has to boil the entire input down into a single vector and then expands it back out. Attention avoids this by allowing the RNN processing the input to pass along information about each word it sees, and then for the RNN generating the output to focus on words as they become relevant.
 
-## Let's start with the basics:
+## Let's start with the basics of a Transformer:
 ### Why do we need a Transformer?
 ###### reffered from [Harvard NLP](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
 Sequence modeling and transduction (e.g. language modeling, machine translation) problems solutions have been dominated by RNN (especially gated RNN) or LSTM, CNN including encoder and decoder, additionally employing the attention mechanism.
