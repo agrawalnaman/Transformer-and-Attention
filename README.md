@@ -24,6 +24,8 @@ First, we need to train the network using a large dataset. For the purpose, we c
 
 So, how do we start? As explained above, we input one example at a time and produce one result, both of which are single words. The difference with a feedforward network comes in the fact that we also need to be informed about the previous inputs before evaluating the result. So you can view RNNs as multiple feedforward neural networks, passing information from one to the other.
 
+![RNN](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/rnn.png)
+
 ### **Seq2Seq - [What is a Seq2Seq model? ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
 
 RNNs can be used as language models for predicting future elements of a sequence given prior elements of the sequence. However, we are still missing the components necessary for building translation models since we can only operate on a single sequence, while translation operates on two sequences – the input sequence and the translated sequence.
