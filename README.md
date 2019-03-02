@@ -5,7 +5,7 @@ This blog is aimed at explaining the [Transformer and it's Attention mechanism](
 ##  Knowing first things first:
 To get most out of this post it is recommended that you are comfortable and acquainted with these terms :
 
-**RNN - [What is a Recurrent Neural Network? ](https://towardsdatascience.com/learn-how-recurrent-neural-networks-work-84e975feaaf7)**
+### **RNN - [What is a Recurrent Neural Network? ](https://towardsdatascience.com/learn-how-recurrent-neural-networks-work-84e975feaaf7)**
 
  Training a typical neural network involves the following steps:
 + 1)Input an example from a dataset.
@@ -24,13 +24,13 @@ First, we need to train the network using a large dataset. For the purpose, we c
 
 So, how do we start? As explained above, we input one example at a time and produce one result, both of which are single words. The difference with a feedforward network comes in the fact that we also need to be informed about the previous inputs before evaluating the result. So you can view RNNs as multiple feedforward neural networks, passing information from one to the other.
 
-**Seq2Seq - [What is a Seq2Seq model? ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
+### **Seq2Seq - [What is a Seq2Seq model? ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
 
 RNNs can be used as language models for predicting future elements of a sequence given prior elements of the sequence. However, we are still missing the components necessary for building translation models since we can only operate on a single sequence, while translation operates on two sequences – the input sequence and the translated sequence.
 
 Sequence to sequence models build on top of language models by adding an encoder step and a decoder step. In the encoder step, a model converts an input sequence (such as an English sentence) into a fixed representation. In the decoder step, a language model is trained on both the output sequence (such as the translated sentence) as well as the fixed representation from the encoder. Since the decoder model sees an encoded representation of the input sequence as well as the translation sequence, it can make more intelligent predictions about future words based on the current word. For example, in a standard language model, we might see the word “crane” and not be sure if the next word should be about the bird or heavy machinery. However, if we also pass an encoder context, the decoder might realize that the input sequence was about construction, not flying animals. Given the context, the decoder can choose the appropriate next word and provide more accurate translations.
 
-**LSTM - [What is a LSTM Network?](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)**
+### **LSTM - [What is a LSTM Network?](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)**
 
 Long Short Term Memory networks – usually just called “LSTMs” – are a special kind of RNN, capable of learning long-term dependencies. They were introduced by Hochreiter & Schmidhuber (1997), and were refined and popularized by many people in following work.1 They work tremendously well on a large variety of problems, and are now widely used.
 
@@ -40,7 +40,7 @@ All recurrent neural networks have the form of a chain of repeating modules of n
 
 LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, there are four, interacting in a very special way.
 
-+ **Attention - [What does attention mean?](https://distill.pub/2016/augmented-rnns/#attentional-interfaces)**
+### **Attention - [What does attention mean?](https://distill.pub/2016/augmented-rnns/#attentional-interfaces)**
 
 When I’m translating a sentence, I pay special attention to the word I’m presently translating. When I’m transcribing an audio recording, I listen carefully to the segment I’m actively writing down. And if you ask me to describe the room I’m sitting in, I’ll glance around at the objects I’m describing as I do so.
 
