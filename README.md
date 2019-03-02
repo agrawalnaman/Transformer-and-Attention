@@ -2,13 +2,55 @@
 ##### **By [Naman Agrawal](https://github.com/agrawalnaman) & Priyanka Cornelius**
 
 This blog is aimed at explaining the [Transformer and it's Attention mechanism](https://arxiv.org/abs/1706.03762) in a lucid and intuitive manner.
-## Prerequisites:
+##  Knowing first things first:
 To get most out of this post it is recommended that you are comfortable and acquainted with these terms :
 
-+ **RNN - [Andrej Karpathy’s blog The Unreasonable Effectiveness of Recurrent Neural Networks ](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)**
-+ **Seq2Seq - [Nathan Lintz Sequence Modeling With Neural Networks (Part 1): Language & Seq2Seq ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
-+ **LSTM - [Christopher Olah’s blog Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)** 
-+ **Attention - [Christopher Olah Attention and Augmented Recurrent Neural Networks](https://distill.pub/2016/augmented-rnns/#attentional-interfaces)** 
+**RNN - [What is a Recurrent Neural Network? ](https://towardsdatascience.com/learn-how-recurrent-neural-networks-work-84e975feaaf7)**
+
+ Training a typical neural network involves the following steps:
++ 1)Input an example from a dataset.
++ 2)The network will take that example and apply some complex computations to it using randomly initialised variables (called weights and biases).
++ 3)A predicted result will be produced.
++ 4)Comparing that result to the expected value will give us an error.
++ 5)Propagating the error back through the same path will adjust the variables.
++ 6)Steps 1–5 are repeated until we are confident to say that our variables are well-defined.
++ 7)A predication is made by applying these variables to a new unseen input.
+
+Of course, that is a quite naive explanation of a neural network, but, at least, gives a good overview and might be useful for someone completely new to the field.
+
+Recurrent neural networks work similarly but, in order to get a clear understanding of the difference, we will go through the simplest model using the task of predicting the next word in a sequence based on the previous ones.
+
+First, we need to train the network using a large dataset. For the purpose, we can choose any large text (“War and Peace” by Leo Tolstoy is a good choice). When done training, we can input the sentence “Napoleon was the Emperor of…” and expect a reasonable prediction based on the knowledge from the book.
+
+So, how do we start? As explained above, we input one example at a time and produce one result, both of which are single words. The difference with a feedforward network comes in the fact that we also need to be informed about the previous inputs before evaluating the result. So you can view RNNs as multiple feedforward neural networks, passing information from one to the other.
+
+**Seq2Seq - [What is a Seq2Seq model? ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
+
+RNNs can be used as language models for predicting future elements of a sequence given prior elements of the sequence. However, we are still missing the components necessary for building translation models since we can only operate on a single sequence, while translation operates on two sequences – the input sequence and the translated sequence.
+
+Sequence to sequence models build on top of language models by adding an encoder step and a decoder step. In the encoder step, a model converts an input sequence (such as an English sentence) into a fixed representation. In the decoder step, a language model is trained on both the output sequence (such as the translated sentence) as well as the fixed representation from the encoder. Since the decoder model sees an encoded representation of the input sequence as well as the translation sequence, it can make more intelligent predictions about future words based on the current word. For example, in a standard language model, we might see the word “crane” and not be sure if the next word should be about the bird or heavy machinery. However, if we also pass an encoder context, the decoder might realize that the input sequence was about construction, not flying animals. Given the context, the decoder can choose the appropriate next word and provide more accurate translations.
+
+**LSTM - [What is a LSTM Network?](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)**
+
+Long Short Term Memory networks – usually just called “LSTMs” – are a special kind of RNN, capable of learning long-term dependencies. They were introduced by Hochreiter & Schmidhuber (1997), and were refined and popularized by many people in following work.1 They work tremendously well on a large variety of problems, and are now widely used.
+
+LSTMs are explicitly designed to avoid the long-term dependency problem. Remembering information for long periods of time is practically their default behavior, not something they struggle to learn!
+
+All recurrent neural networks have the form of a chain of repeating modules of neural network. In standard RNNs, this repeating module will have a very simple structure, such as a single tanh layer.
+
+LSTMs also have this chain like structure, but the repeating module has a different structure. Instead of having a single neural network layer, there are four, interacting in a very special way.
+
++ **Attention - [What does attention mean?](https://distill.pub/2016/augmented-rnns/#attentional-interfaces)**
+
+When I’m translating a sentence, I pay special attention to the word I’m presently translating. When I’m transcribing an audio recording, I listen carefully to the segment I’m actively writing down. And if you ask me to describe the room I’m sitting in, I’ll glance around at the objects I’m describing as I do so.
+
+Neural networks can achieve this same behavior using attention, focusing on part of a subset of the information they’re given. For example, an RNN can attend over the output of another RNN. At every time step, it focuses on different positions in the other RNN.
+
+We’d like attention to be differentiable, so that we can learn where to focus. To do this, we use the same trick Neural Turing Machines use: we focus everywhere, just to different extents.
+
+The attention distribution is usually generated with content-based attention. The attending RNN generates a query describing what it wants to focus on. Each item is dot-producted with the query to produce a score, describing how well it matches the query. The scores are fed into a softmax to create the attention distribution.
+
+One use of attention between RNNs is translation. A traditional sequence-to-sequence model has to boil the entire input down into a single vector and then expands it back out. Attention avoids this by allowing the RNN processing the input to pass along information about each word it sees, and then for the RNN generating the output to focus on words as they become relevant.
 
 ## Let's start with the basics:
 ### Why do we need a Transformer?
