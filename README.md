@@ -92,7 +92,7 @@ While this model is quite simple (only 5 lines of equations), it gives us a stra
 ### To get a deeper insight into the Transformer in a more illustrated format we read [The illustrated Transformer - by Jay Alammar](https://jalammar.github.io/illustrated-transformer/), However we were left curious with a few unanswered questions after reading it. 
 ### In this Blog we will attempt to answer those questions.
 
-### What is Attention?
+### A deeper look at Attention!
 ###### [AttentionPrimer](https://mchromiak.github.io/articles/2017/Sep/01/Primer-NN/#attention-basis)
 
 The basic idea behind the attention is that it tells us how much we are “focusing” on a particular source word at a particular time step. The encoder-decoder will only be able to access information about the first encoded  word  in  the  source  by passing  it  over |F| time  steps. The attention mechanism allows for the  source  encoding  to be accessed (in a weighted manner) through the context vector.
