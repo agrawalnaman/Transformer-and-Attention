@@ -56,7 +56,7 @@ One use of attention between RNNs is translation. A traditional sequence-to-sequ
 
 ## Let's start with the basics of a Transformer:
 ### Why do we need a Transformer?
-###### reffered from [Harvard NLP](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+###### referred from [Harvard NLP](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
 Sequence modeling and transduction (e.g. language modeling, machine translation) problems solutions have been dominated by RNN (especially gated RNN) or LSTM, CNN including encoder and decoder, additionally employing the attention mechanism.
 
 When RNN (or CNN) takes a sequence as an input, it handles sentences word by word. In cases when such sequences are too long, the model is prone to forgetting the content of distant positions in sequence or mix it with following positions’ content. This is where LSTM comes into picture. Also,the sequentiality is an obstacle toward parallelization of the process.
@@ -76,6 +76,8 @@ The Transformer architecture is aimed at the problem of [sequence transduction (
 
 + The encoder-decoder model is designed at its each step to be auto-regressive - i.e. use previously generated symbols as extra input while generating next symbol. Thus, xi+yi−1→yi
 ### Neural Encoder-Decoder Model
+
+referred from [Graham Neubig CMU tutorial](https://arxiv.org/pdf/1703.01619.pdf)
 The Encoder-Decoder model aims at tackling the statistical machine translation problem of modeling the probability P(E|F) of the output E given the input F. The name “encoder-decoder” comes from  the  idea  that  the  first  neural  network  running  over F “encodes”  its information  as  a vector  of  real-valued  numbers  (the  hidden  state),  then  the  second  neural  network  used  to predict E “decodes” this information into the target sentence.
 
 If the encoder is expressed as RNN<sup>(f)</sup>(·), the decoder is expressed as RNN<sup>(e)</sup>(·), and we have a softmax that takes RNN<sup>(e)</sup>’s hidden state at time step t and turns it into a probability, then our model is expressed as follows :
