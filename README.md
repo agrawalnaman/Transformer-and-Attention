@@ -78,6 +78,7 @@ The Transformer architecture is aimed at the problem of [sequence transduction (
 ### Neural Encoder-Decoder Model
 
 referred from [Graham Neubig CMU tutorial](https://arxiv.org/pdf/1703.01619.pdf)
+
 The Encoder-Decoder model aims at tackling the statistical machine translation problem of modeling the probability P(E|F) of the output E given the input F. The name “encoder-decoder” comes from  the  idea  that  the  first  neural  network  running  over F “encodes”  its information  as  a vector  of  real-valued  numbers  (the  hidden  state),  then  the  second  neural  network  used  to predict E “decodes” this information into the target sentence.
 
 If the encoder is expressed as RNN<sup>(f)</sup>(·), the decoder is expressed as RNN<sup>(e)</sup>(·), and we have a softmax that takes RNN<sup>(e)</sup>’s hidden state at time step t and turns it into a probability, then our model is expressed as follows :
