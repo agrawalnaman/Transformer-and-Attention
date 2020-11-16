@@ -24,7 +24,7 @@ First, we need to train the network using a large dataset. For the purpose, we c
 
 So, how do we start? As explained above, we input one example at a time and produce one result, both of which are single words. The difference with a feedforward network comes in the fact that we also need to be informed about the previous inputs before evaluating the result. So you can view RNNs as multiple feedforward neural networks, passing information from one to the other.
 
-![RNN](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/rnn.png)
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/rnn.png">
 
 ### **Seq2Seq - [What is a Seq2Seq model? ](https://indico.io/blog/sequence-modeling-neuralnets-part1/)**
 
@@ -83,10 +83,11 @@ The Encoder-Decoder model aims at tackling the statistical machine translation p
 
 If the encoder is expressed as RNN<sup>(f)</sup>(·), the decoder is expressed as RNN<sup>(e)</sup>(·), and we have a softmax that takes RNN<sup>(e)</sup>’s hidden state at time step t and turns it into a probability, then our model is expressed as follows :
 
-![encoder-diagram](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/encoder_diagram.png)
+
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/encoder_diagram.png">
 
 
-![encoder-decoder-formulae](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/encoder_decoder_formulae)
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/encoder_decoder_formulae">
 
 In the first two lines, we look up the embedding m<sub>t</sub><sup>(f)</sup> and calculate the encoder hidden state h<sub>t</sub><sup>(f)</sup> for the t<sup>th</sup> word in the source sequence F. We start with an empty vector h<sub>0</sub><sup>(f)</sup> = 0, and by h<sub>|F|</sub><sup>(f)</sup>, the encoder has seen all the words in the source sentence.  Thus, this hidden state should theoretically be able to encode all of the information in the source sentence.
 
@@ -160,10 +161,10 @@ The compatibility function (see Attention primer) is considered in terms of two,
 
 #### Reffered from [CMU CS 11-747, Spring 2018 Graham Neubig](http://www.phontron.com/class/nn4nlp2018/schedule/attention.html)
 
-![encoder-decoder](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/Encoder-decoder-models.png)
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/Encoder-decoder-models.png">
 
-![calculating-attention-1](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/calculating-attention-.png)
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/calculating-attention-.png">
 
-![calculating-attention-2](https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/calculating-attention-2.png)
+<img src="https://github.com/agrawalnaman/Transformer-and-Attention/blob/master/calculating-attention-2.png">
 
 
